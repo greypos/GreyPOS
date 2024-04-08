@@ -1,7 +1,25 @@
 AddType application/x-httpd-php .appcache
 <IfModule mod_expires.c>
-  <Files *.appcache>
-      ExpiresActive On
-      ExpiresDefault "access plus 0 seconds"
-  </Files>
+  #ProxyRequests Off
+  #ProxyPreserveHost On
+  #<Proxy *>
+  #        Order deny,allow
+  #        Allow from all
+  #</Proxy>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off 
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  #RewriteCond %{HTTP:Connection} Upgrade [NC]
+  #RewriteRule /(.*) ws://localhost:8080/$1 [P,L]
+  #ProxyPass        /socket.io http://localhost:8080/socket.io/
+  #ProxyPassReverse /socket.io http://localhost:8080/socket.io/
+  #<Location /socket.io>
+  #     Order allow,deny
+  #     Allow from all
+  #</Location>
+
+ # <Files *.appcache>
+ #     ExpiresActive On
+ #     ExpiresDefault "access plus 0 seconds"
+  #</Files>
 </IfModule>
