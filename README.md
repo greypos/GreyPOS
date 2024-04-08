@@ -1,3 +1,6 @@
+# GreyPOS
+## We have forked and rebranded wallacepos code -> GreyPOS to fit our appplication need.
+
 ### Note: WallacePOS is not longer actively maintained. If you would like to become a maintainer of this project please let me know.
 
 # WallacePOS
